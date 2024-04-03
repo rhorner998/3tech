@@ -5,21 +5,17 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "develop": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run start",
-    "client": "cd client && npm run start",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install-server": "cd server && npm install",
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build",
-    "postinstall": "npm run install-client && npm run build-client"
+    "postinstall": "npm run install-server && npm run install-client && npm run build-client"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "apollo-server": "^3.13.0",
-    "graphql": "^16.8.1"
-  },
   "devDependencies": {
     "concurrently": "^5.1.0"
-  }
+  },
+  "dependencies": {}
 }
