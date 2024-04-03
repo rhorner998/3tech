@@ -1,4 +1,3 @@
-// cd C:\Users\Admin\bootcamp\booksearch\Develop\server
 // git add .
 // git commit -m"message"
 // git push origin main
@@ -16,9 +15,8 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
+// Serve static files from the client/dist directory
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 const server = new ApolloServer({
   typeDefs,
